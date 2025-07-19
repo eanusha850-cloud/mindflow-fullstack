@@ -4,11 +4,13 @@ FROM openjdk:17-jdk-slim
 # Set working directory
 WORKDIR /app
 
-# Copy the entire repository first
-COPY . .
+# Copy Maven wrapper and configuration files
+COPY mvnw .
+COPY .mvn .mvn
+COPY pom.xml .
 
-# Navigate to the backend directory and copy files
-WORKDIR /app/mindflow-backend
+# Copy backend source code
+COPY backend-src ./src
 
 # Make Maven wrapper executable and verify it exists
 RUN ls -la && chmod +x ./mvnw && ls -la mvnw

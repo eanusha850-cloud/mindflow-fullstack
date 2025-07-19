@@ -1,0 +1,233 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 1048576 bytes. Error detail: AllocateHeap
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   This process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:44), pid=3908, tid=12060
+#
+# JRE version:  (21.0.7+6) (build )
+# Java VM: OpenJDK 64-Bit Server VM (21.0.7+6-LTS, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dmaven.multiModuleProjectDirectory=D:\Real_Time_Projects\mindflow-fullstack org.apache.maven.wrapper.MavenWrapperMain spring-boot:run -Dspring-boot .run.profiles=dev
+
+Host: AMD Ryzen 5 7520U with Radeon Graphics         , 8 cores, 7G,  Windows 11 , 64 bit Build 26100 (10.0.26100.4484)
+Time: Sat Jul 19 16:06:39 2025 India Standard Time elapsed time: 1.042815 seconds (0d 0h 0m 1s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001d907a55fa0):  JavaThread "Unknown thread" [_thread_in_vm, id=12060, stack(0x0000003b99f00000,0x0000003b9a000000) (1024K)]
+
+Stack: [0x0000003b99f00000,0x0000003b9a000000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x6d4bb9]
+V  [jvm.dll+0x8afa11]
+V  [jvm.dll+0x8b1f3e]
+V  [jvm.dll+0x8b2623]
+V  [jvm.dll+0x280816]
+V  [jvm.dll+0xbfdf7]
+V  [jvm.dll+0x338105]
+V  [jvm.dll+0x3304f1]
+V  [jvm.dll+0x878909]
+V  [jvm.dll+0x3c1b91]
+V  [jvm.dll+0x861973]
+V  [jvm.dll+0x456b7e]
+V  [jvm.dll+0x4587c1]
+C  [jli.dll+0x52a0]
+C  [ucrtbase.dll+0x37b0]
+C  [KERNEL32.DLL+0x2e8d7]
+C  [ntdll.dll+0x3c34c]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ffb09ca2108, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+Total: 0
+
+Other Threads:
+  0x000001d909f69e20 WorkerThread "GC Thread#0"                     [id=14152, stack(0x0000003b9a000000,0x0000003b9a100000) (1024K)]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffb0939cca0]
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007ffb09d16578] Heap_lock - owner thread: 0x000001d907a55fa0
+
+Heap address: 0x000000008c000000, size: 1856 MB, Compressed Oops mode: 32-bit
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 1.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+ CardTable entry size: 512
+ Card Set container configuration: InlinePtr #cards 5 size 8 Array Of Cards #cards 12 size 40 Howl #buckets 4 coarsen threshold 1843 Howl Bitmap #cards 512 size 80 coarsen threshold 460 Card regions per heap region 1 cards per card region 2048
+
+Heap:
+ garbage-first heap   total 0K, used 0K [0x000000008c000000, 0x0000000100000000)
+  region size 1024K, 0 young (0K), 0 survivors (0K)
+
+[error occurred during error reporting (printing heap information), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffb0978ea59]
+GC Heap History (0 events):
+No events
+
+Dll operation events (1 events):
+Event: 0.029 Loaded shared library D:\Program Files\Microsoft\bin\java.dll
+
+Deoptimization events (0 events):
+No events
+
+Classes loaded (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+ZGC Phase Switch (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Memory protections (0 events):
+No events
+
+Nmethod flushes (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff668890000 - 0x00007ff66889e000 	D:\Program Files\Microsoft\bin\java.exe
+0x00007ffb830a0000 - 0x00007ffb83308000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffb82000000 - 0x00007ffb820c9000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffb803f0000 - 0x00007ffb807dd000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffb801f0000 - 0x00007ffb8033b000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffb70510000 - 0x00007ffb7052d000 	D:\Program Files\Microsoft\bin\VCRUNTIME140.dll
+0x00007ffb70400000 - 0x00007ffb70418000 	D:\Program Files\Microsoft\bin\jli.dll
+0x00007ffb82180000 - 0x00007ffb8234c000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffb64220000 - 0x00007ffb644ba000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.4484_none_3e0e6d4ce32ef3b3\COMCTL32.dll
+0x00007ffb80ac0000 - 0x00007ffb80ae7000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffb82680000 - 0x00007ffb826ab000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffb81b80000 - 0x00007ffb81c29000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffb80d00000 - 0x00007ffb80e37000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffb80340000 - 0x00007ffb803e3000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffb81fc0000 - 0x00007ffb81fef000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffb7d100000 - 0x00007ffb7d10c000 	D:\Program Files\Microsoft\bin\vcruntime140_1.dll
+0x00007ffb5d4f0000 - 0x00007ffb5d57d000 	D:\Program Files\Microsoft\bin\msvcp140.dll
+0x00007ffb09060000 - 0x00007ffb09df8000 	D:\Program Files\Microsoft\bin\server\jvm.dll
+0x00007ffb825c0000 - 0x00007ffb82674000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffb818b0000 - 0x00007ffb81956000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffb82a30000 - 0x00007ffb82b48000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffb82360000 - 0x00007ffb823d4000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffb80040000 - 0x00007ffb8009e000 	C:\WINDOWS\SYSTEM32\POWRPROF.dll
+0x00007ffb754d0000 - 0x00007ffb75505000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffb71440000 - 0x00007ffb7144b000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffb80020000 - 0x00007ffb80034000 	C:\WINDOWS\SYSTEM32\UMPDC.dll
+0x00007ffb7ef90000 - 0x00007ffb7efab000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ffb7d0e0000 - 0x00007ffb7d0ea000 	D:\Program Files\Microsoft\bin\jimage.dll
+0x00007ffb6fa90000 - 0x00007ffb6fcd1000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ffb81c30000 - 0x00007ffb81fb6000 	C:\WINDOWS\System32\combase.dll
+0x00007ffb80e40000 - 0x00007ffb80f20000 	C:\WINDOWS\System32\OLEAUT32.dll
+0x00007ffb62f20000 - 0x00007ffb62f63000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ffb80a20000 - 0x00007ffb80ab9000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffb701e0000 - 0x00007ffb70200000 	D:\Program Files\Microsoft\bin\java.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;D:\Program Files\Microsoft\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.4484_none_3e0e6d4ce32ef3b3;D:\Program Files\Microsoft\bin\server
+
+VM Arguments:
+jvm_args: -Dmaven.multiModuleProjectDirectory=D:\Real_Time_Projects\mindflow-fullstack 
+java_command: org.apache.maven.wrapper.MavenWrapperMain spring-boot:run -Dspring-boot .run.profiles=dev
+java_class_path (initial): D:\Real_Time_Projects\mindflow-fullstack\.mvn\wrapper\maven-wrapper.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 121634816                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 1946157056                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5839372                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122909434                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122909434                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 1946157056                             {manageable} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags foldmultilines=false
+ #1: stderr all=off uptime,level,tags foldmultilines=false
+
+Environment Variables:
+JAVA_HOME=D:\Program Files\Microsoft
+PATH=D:\Program Files\Microsoft\bin;C:\Python313\Scripts\;C:\Python313\;D:\Java class\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Java\jdk-17;C:\Program Files\Java\jdk-17\bin;D:\Java class\Microsoft VS Code\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;D:\Java class\Apache Software Foundation\apache-maven-3.9.10\bin;D:\Program Files\Microsoft\bin;D:\Program Files\Git\cmd;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\eanus\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\IntelliJ IDEA 2025.1.1.1\bin;C:\Users\eanus\AppData\Roaming\npm;C:\Users\eanus\AppData\Local\Programs\Windsurf\bin
+USERNAME=eanus
+LANG=en_US.UTF-8
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=AMD64 Family 23 Model 160 Stepping 0, AuthenticAMD
+TMP=C:\Users\eanus\AppData\Local\Temp
+TEMP=C:\Users\eanus\AppData\Local\Temp
+
+
+
+
+Periodic native trim disabled
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 11 , 64 bit Build 26100 (10.0.26100.4484)
+OS uptime: 0 days 20:11 hours
+Hyper-V role detected
+
+CPU: total 8 (initial active 8) (8 cores per cpu, 2 threads per core) family 23 model 160 stepping 0 microcode 0x8a0000a, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4a, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, clmul, bmi1, bmi2, adx, sha, fma, vzeroupper, clflush, clflushopt, hv, rdtscp, rdpid, f16c
+Processor Information for the first 8 processors :
+  Max Mhz: 2801, Current Mhz: 2483, Mhz Limit: 2801
+
+Memory: 4k page, system-wide physical 7418M (1071M free)
+TotalPageFile size 25183M (AvailPageFile size 4M)
+current process WorkingSet (physical memory assigned to process): 12M, peak: 12M
+current process commit charge ("private bytes"): 55M, peak: 56M
+
+vm_info: OpenJDK 64-Bit Server VM (21.0.7+6-LTS) for windows-amd64 JRE (21.0.7+6-LTS), built on 2025-04-09T22:17:25Z by "MicrosoftCorporation" with unknown MS VC++:1939
+
+END.

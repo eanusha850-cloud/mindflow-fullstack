@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: mindflow-backend
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    region: oregon
+    branch: main
+    healthCheckPath: /api/auth/ping
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: JWT_SECRET
+        value: your-super-secret-jwt-key-2024-mindflow-app
+      - key: SERVER_PORT
+        value: 10000
