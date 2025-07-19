@@ -26,6 +26,14 @@ public class AuthController {
     private JwtUtil jwtUtil;
 
     /**
+     * Root endpoint for testing
+     */
+    @GetMapping("/")
+    public ResponseEntity<String> root() {
+        return ResponseEntity.ok("Auth controller is working!");
+    }
+
+    /**
      * Simple test endpoint
      */
     @GetMapping("/test")
