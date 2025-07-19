@@ -4,11 +4,11 @@ FROM openjdk:17-jdk-slim
 # Set working directory
 WORKDIR /app
 
-# Copy specific files from mindflow-backend directory
-COPY mindflow-backend/mvnw .
-COPY mindflow-backend/.mvn .mvn
-COPY mindflow-backend/pom.xml .
-COPY mindflow-backend/src ./src
+# Copy the entire repository first
+COPY . .
+
+# Navigate to the backend directory and copy files
+WORKDIR /app/mindflow-backend
 
 # Make Maven wrapper executable and verify it exists
 RUN ls -la && chmod +x ./mvnw && ls -la mvnw
@@ -23,4 +23,4 @@ RUN ./mvnw clean package -DskipTests
 EXPOSE 8080
 
 # Run the application
-CMD ["java", "-jar", "-Dserver.port=${PORT:-8080}", "target/mindflow-backend-0.0.1-SNAPSHOT.jar"] 
+CMD ["java", "-jar", "-Dserver.port=${PORT:-8080}", "target/mindflow-backend-0.0.1-SNAPSHOT.jar"]
