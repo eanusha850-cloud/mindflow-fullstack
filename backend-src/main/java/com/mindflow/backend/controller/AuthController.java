@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
+@CrossOrigin(origins = "*")
 public class AuthController {
 
     @Autowired
@@ -38,6 +39,14 @@ public class AuthController {
     @GetMapping("/ping")
     public ResponseEntity<String> ping() {
         return ResponseEntity.ok("Backend is running!");
+    }
+
+    /**
+     * Simple GET endpoint for testing
+     */
+    @GetMapping("/signup")
+    public ResponseEntity<String> signupGet() {
+        return ResponseEntity.ok("Signup endpoint is accessible!");
     }
 
     /**

@@ -27,13 +27,11 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**", "/h2-console/**", "/api/**").permitAll()
-                .anyRequest().authenticated()
+                .anyRequest().permitAll()
             )
             .httpBasic(httpBasic -> httpBasic.disable())
             .formLogin(formLogin -> formLogin.disable())
-            .headers(headers -> headers.frameOptions().disable()) // For H2 console
-            .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+            .headers(headers -> headers.frameOptions().disable()); // For H2 console
 
         return http.build();
     }
