@@ -16,6 +16,8 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess, setCurrentView }) => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setMessage("");
+    
     try {
       const response = await axios.post("/auth/login", { username, password });
       if (response.data.token) {
@@ -25,9 +27,15 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess, setCurrentView }) => {
       } else {
         setMessage("Invalid credentials.");
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error("Login error:", error);
-      setMessage("Login failed. Check credentials.");
+      if (error.response?.data?.message) {
+        setMessage(error.response.data.message);
+      } else if (error.code === "NETWORK_ERROR") {
+        setMessage("Network error. Please check your connection.");
+      } else {
+        setMessage("Login failed. Please try again.");
+      }
     } finally {
       setLoading(false);
     }
@@ -48,6 +56,7 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess, setCurrentView }) => {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           className="border border-purple-400 rounded-2xl p-3 w-full focus:outline-none focus:ring-4 focus:ring-purple-300 shadow-inner"
+          required
         />
         <input
           type="password"
@@ -55,20 +64,27 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess, setCurrentView }) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="border border-purple-400 rounded-2xl p-3 w-full focus:outline-none focus:ring-4 focus:ring-purple-300 shadow-inner"
+          required
         />
 
         <button
           type="submit"
           disabled={loading}
-          className="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-2xl w-full shadow-xl hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition duration-300"
+          className="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-2xl w-full shadow-xl hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {loading ? "Logging in..." : "Login"}
         </button>
 
-        {message && <p className="text-red-600 text-center font-medium animate-pulse">{message}</p>}
+        {message && (
+          <p className={`text-center font-medium animate-pulse ${
+            message.includes("successful") ? "text-green-600" : "text-red-600"
+          }`}>
+            {message}
+          </p>
+        )}
 
         <p className="text-center text-sm">
-          Don’t have an account? {" "}
+          Don't have an account? {" "}
           <button
             type="button"
             onClick={() => setCurrentView("signup")}
