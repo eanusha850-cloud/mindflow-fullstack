@@ -7,8 +7,8 @@ WORKDIR /app
 # Copy the entire mindflow-backend directory
 COPY mindflow-backend/ .
 
-# Make Maven wrapper executable
-RUN chmod +x ./mvnw
+# Make Maven wrapper executable and verify it exists
+RUN ls -la && chmod +x ./mvnw && ls -la mvnw
 
 # Download dependencies
 RUN ./mvnw dependency:go-offline -B
