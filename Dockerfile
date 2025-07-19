@@ -4,8 +4,11 @@ FROM openjdk:17-jdk-slim
 # Set working directory
 WORKDIR /app
 
-# Copy the entire mindflow-backend directory
-COPY mindflow-backend/ .
+# Copy specific files from mindflow-backend directory
+COPY mindflow-backend/mvnw .
+COPY mindflow-backend/.mvn .mvn
+COPY mindflow-backend/pom.xml .
+COPY mindflow-backend/src ./src
 
 # Make Maven wrapper executable and verify it exists
 RUN ls -la && chmod +x ./mvnw && ls -la mvnw
