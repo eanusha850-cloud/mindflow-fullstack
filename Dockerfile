@@ -22,5 +22,5 @@ RUN ./mvnw clean package -DskipTests
 # Expose port (Render will set PORT environment variable)
 EXPOSE 8080
 
-# Run the application
+# Run the application - Updated for fresh deployment
 CMD ["java", "-jar", "-Dserver.port=${PORT:-8080}", "target/mindflow-backend-0.0.1-SNAPSHOT.jar"]
